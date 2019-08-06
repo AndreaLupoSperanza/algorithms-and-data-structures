@@ -1,0 +1,3 @@
+C:/Users/trava/Desktop/RepositoryGit/algorithms-and-data-structures/untitled/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/trava/Desktop/RepositoryGit/algorithms-and-data-structures/untitled/cmake-build-debug/CMakeFiles/untitled.dir
+C:/Users/trava/Desktop/RepositoryGit/algorithms-and-data-structures/untitled/cmake-build-debug/CMakeFiles/rebuild_cache.dir

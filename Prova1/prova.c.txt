@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+typedef struct{
+    int raggio;
+} cerchio;
+
+int main()
+{
+    int a=50;
+    cerchio c;
+    c.raggio=20;
+    printf("Bella per te\n");
+    printf("intero a:%d\n",a);
+    printf("raggio cerchio c:%d\n",c.raggio);
+
+    return 0;
+}
