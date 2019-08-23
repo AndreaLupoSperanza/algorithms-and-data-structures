@@ -1,0 +1,58 @@
+#include <stdio.h>
+typedef struct elem {             
+    int valore;                  
+    struct elem*      sx;                  
+    struct elem*      dx;         
+    
+} nodo_albero; 
+typedef nodo_albero* BTree;
+
+int livello_vero(BTree t, int h){
+    return l_v_ric(t,0,h);
+}
+int l_v_ric(BTree x, int hAtt, int h){
+    printf("\ninzio hAtt %d e h %d",hAtt,h);
+    if(x==NULL){
+        printf("\nfoglia, non esiste da quelche parte questa altezza");
+        return 0; //non ci sta quell'altezza
+    }
+    if(hAtt<h){
+        printf("\ncondizione hAtt %d e h %d",hAtt,h);
+        hAtt=hAtt+1;
+        return l_v_ric(x->sx,hAtt,h)&&l_v_ric(x->dx,hAtt,h);
+    }
+    printf("\nvalore");
+    return (x->valore==1);
+}
+int main()
+{
+    printf("Hello World");
+    BTree a,b,c,d,e,f;
+    a=malloc(sizeof(BTree));
+    b=malloc(sizeof(BTree));
+    c=malloc(sizeof(BTree));
+    d=malloc(sizeof(BTree));
+    e=malloc(sizeof(BTree));
+    f=malloc(sizeof(BTree));
+    a->valore=1;
+    a->sx=b;
+    a->dx=c;
+    b->valore=1;
+    b->sx=d;
+    b->dx=NULL;
+    c->valore=1;
+    c->sx=e;
+    c->dx=f;
+    d->valore=1;
+    d->sx=NULL;
+    d->dx=NULL;
+    e->valore=1;
+    e->sx=NULL;
+    e->dx=NULL;
+    f->valore=1;
+    f->sx=NULL;
+    f->dx=NULL;
+    printf("\nRis livello_vero su a, prof 0: %d", livello_vero(a,0)); //torna 1
+	printf("\nRis livello_vero su a, prof 1: %d", livello_vero(a,1)); //torna 1
+	printf("\nRis livello_vero su a, prof 2: %d", livello_vero(a,2)); //torna 0 perché non esiste una foglia a quell'altezza
+}
