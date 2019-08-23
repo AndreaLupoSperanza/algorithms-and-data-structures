@@ -1,0 +1,70 @@
+#include <stdio.h>
+
+typedef struct elem2 {             
+    int valore;                  
+    struct      elem2*      primofiglio;                  
+    struct      elem2*      fratello;         
+    
+} nodo_alberoN;            
+typedef nodo_alberoN* BNTree;
+
+int verifica_figli_bool(BNTree x){
+    if(x->fratello!=NULL)
+        return (x->valore==1)&&(verifica_figli_bool(x->fratello));
+    return (x->valore==1);
+}
+
+int applica_tutti_figli(BNTree x){
+    if(x==NULL){
+        return 0;
+    }
+    return conta_booleani(x)+applica_tutti_figli(x->fratello);
+}
+
+int conta_booleani(BNTree t){
+    if(t->primofiglio==NULL){
+        return 0;
+    }  
+    return verifica_figli_bool(t->primofiglio)+applica_tutti_figli(t->primofiglio);
+}
+
+int main()
+{
+    printf("Hello World");
+       BNTree a,b,c,d,e,f,g,h;
+    a=malloc(sizeof(BNTree));
+    b=malloc(sizeof(BNTree));
+    c=malloc(sizeof(BNTree));
+    d=malloc(sizeof(BNTree));
+    e=malloc(sizeof(BNTree));
+    f=malloc(sizeof(BNTree));
+    g=malloc(sizeof(BNTree));
+    h=malloc(sizeof(BNTree));
+    a->valore=1;
+    a->primofiglio=b;
+    a->fratello=NULL;
+    b->valore=1;
+    b->primofiglio=e;
+    b->fratello=c;
+    c->valore=1;
+    c->primofiglio=f;
+    c->fratello=d;
+    d->valore=1;
+    d->primofiglio=NULL;
+    d->fratello=NULL;
+    e->valore=1;
+    e->primofiglio=NULL;
+    e->fratello=NULL;
+    f->valore=0;
+    f->primofiglio=NULL;
+    f->fratello=g;
+    g->valore=1;
+    g->primofiglio=NULL;
+    g->fratello=h;
+    h->valore=0;
+    h->primofiglio=NULL;
+    h->fratello=NULL;
+    printf("\nRis applicato su a: %d", conta_booleani(a));
+    printf("\nRis applicato su b: %d", conta_booleani(b));
+    printf("\nRis applicato su c: %d", conta_booleani(c));
+}
